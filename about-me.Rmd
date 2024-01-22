@@ -1,0 +1,159 @@
+---
+title: "About Me"
+author: "Zhi Mei Maria Lee"
+output:
+  html_document:
+    toc: yes
+  word_document:
+    toc: yes
+  pdf_document:
+    toc: yes
+bibliography: reference-weeee.bib
+---
+
+# Who I am and where I came from
+
+I'm an international student from Malaysia. I'm a little a of an oddball back home, but maybe not so much here, that became obsess with the idea of working on wildlife conservation back home. Not many people are very concerned with wildlife conservation back home. Consequently career opportunities for wildlife conservation are not very bright which feeds back into the loop and people don't care to become involve with it. Unsurprisingly, hardly any universities offer courses that relate to wildlife conservation. I think I can count on one hand the number of local universities that offer wildlife conservation courses much less have courses relating to population genetics. 
+
+It isn't really any surprise therefore, that I ended up in [Colorado State University](https://www.colostate.edu/), when I decided I wanted to pursue wildlife biology as my major for undergraduate career. The outdoors here beautiful, and it is just a great environment to learn about conservation and it is I think professors here are great. I fell in love with population genetics, however, only after I arrived here and took one of my first classes, an Intro into Biology with Jennifer L. Neuwald. She was a great influence in this matter partly because she is great at teaching and partly because population genetics is part of her research interest. 
+
+Since then, I've been searching for anything and everything be it classes, labs or work that would allow me to learn more about genetics and bioinformatics. So, here I am taking this class. 
+
+These days, my favorite things to do includes:
+
+1. Hiking. 
+I have a photo of one of my hikes below, I think this photo may have been taken somewhere in Rocky Mountain. 
+
+```{r me_pic, echo=FALSE, out.width="500px"}
+knitr::include_graphics("images/maria.jpg", auto_pdf = TRUE)
+```
+
+1. Crocheting 
+1. Drawing/ painting animals these days although the subjects does change often
+1. Doing lab work/ volunteering at the school teaching collections (I promise I'm not a workaholic, stuff especially volunteering is just very relaxing for me and it helps me take my mind of school)
+
+# Research Interests
+
+I don't have a specific research interest as of yet as an undergraduate but currently, what I have been helping with a graduate student, Henrique in the Naccappa lab from the Agriculture department. He is looking to analyse some data on a parasitoid called B. cephi, which could help control an invasive pest call the Wheat stem sawfly. They are not doing as well as they could in the state and he suspects there may be genetic differences between those within the same species in N. Dakota (where they exist in higher numbers) and Colorado which may or may not be affecting their ability to reproduce. This topic is similar to what I hope want to research in the future, albeit not with a focus on agriculture. 
+
+## Influential papers
+
+I think some studies that have really made an impression on me in my undergraduate career is the work the Professor Reugg has done on the bird Genoscape project [@ruegg_genoscape-network_2020]. I think this was a project that really showed me the scope in which population genetic can take place with. Not only that, it got me thinking about possible research possibilities regarding migratory birds in South East Asia, where I think there might be gap in this research topic. So, it's on my research bucket list for when I return back home to do if life permits it. 
+
+Another paper that I have found impressive on a similar line of interest, is the recent development in using scat to track and number the population of large cats in India [@maroju_schrodingers_2016]. It is another paper that has open the horizons to non-invasive research that can take place and target cryptic species which is something Malaysia struggles with. It's been on my mind too and it is another thing added into my so-call research bucket list to do when I go home. 
+
+## The mathematics behind my research
+
+I don't have a particular work yet to write math for but here are some equations from my class last semester in my Wildlife data collection and analysis class. 
+
+Binomial distribution
+$$
+Pr(y|n,p) = \binom{n}{y}p^{y}(1-p)^{n-y}
+$$
+
+Akaike's Information Criterion
+$$
+AIC = -2log(L(\hat\theta))+2K
+$$
+
+## My computing experience
+
+I've had some rudimentary experience in programming in python, matlab and R although I don't have any experience formally learning how to code in R. Most of my experiences with R involves altering example code to fit a data set. 
+
+I have become a little rusty with python since, it has been a few years since, I took a course in it, in contrast matlab is fresher in my mind since, I took an ecological modeling class last semester with it.
+
+Examples of code that I wrote in matlab are, the code is of a model for Congenital Vestibular Syndrome (CVS) and the probability of it going to fixation in the Malayan tiger population based on some data from a paper on the same disease in the Sumatran tiger population.
+
+```matlab
+N0 = 200;
+n2= 38;
+freqCVS = 0.4125;
+possible_progeny = 3*100;
+% mininum size of average litter 2-6 assuming that 1/2 the population is female and all are able to breed
+gen=50
+count=1
+count2=1
+
+population = zeros(possible_progeny,gen);
+population(:,1) = N0*(freqCVS).*ones(possible_progeny,1);
+
+for t = 2:gen % start at time set 2 b/c 1 is defined already
+    for pop = 1:possible_progeny
+
+        if population(pop,t-1)==0 
+            population(pop,t) =population(pop,t-1);
+        else Loss_time(count2,1)= t-1;
+            count2 = count2 + 1;
+        end
+        if population(pop,t-1)==n2
+            population(pop,t)=population(pop,t-1);
+        else 
+            Fix_time(count,1) = t-1;
+            count = count+1;
+        end
+        if population(pop,t-1)~=0 && population(pop,t-1)~=n2
+            for alleles = 1: n2
+                if rand(1).*n2 < population(pop,t-1)
+                    population(pop,t) = population(pop,t)+1;
+                end
+            end 
+       end
+    end
+end
+
+
+plot(population')
+title("projected population")
+xlabel("generations")
+ylabel("freq of CVS")
+Averagetime_CVSfixing = mean(Fix_time)
+Averagetime_CVSpurge = mean(Loss_time)
+```
+
+I don't have any python code saved up from when I last took the course since, most of it was in a textbook interactive website (Juypyter) where I don't remember how to retrive. So, here is some python code form the web. The code is from the GitHub account zhiwehu which provides the solution for a practice problem for coding. 
+
+```python
+l=[]
+for i in range(2000, 3201):
+    if (i%7==0) and (i%5!=0):
+        l.append(str(i))
+
+print ','.join(l)
+
+```
+
+## What I hope to get out of this class
+
+Give me a bullet list of three things:
+
+* Have the skills requird to help Henrique's research. A little vague at the moment since, he is looking to start that chapter later in the semester. 
+* Understand the basics of bioinformatics since, I know absolutely nothing. 
+* I want to be able to code better or at least understand coding better between different platforms. 
+
+
+# Evaluating some R code
+
+Here is a boxplot of average tick size in different prairie dogs.
+
+```{r}
+library(tidyverse)
+library(AICcmodavg)
+library(ggplot2)
+
+ticks_data<- read.csv("tick_data_Homework.csv", header = TRUE)
+head
+
+ggplot(ticks_data,aes(x = host, y = tick_sz, fill = host))+
+  scale_fill_viridis_d(option = "inferno")+
+  ggtitle("Mean Tick length in 4 Prairie Dog Host Species")+
+  geom_boxplot()+
+  theme_bw()+
+  theme(plot.title = element_text(hjust=0.5))+
+  labs(x = "Prairie dog host species", 
+       y = "Mean length of ticks (micrometer)")+
+  scale_x_discrete(labels = c("Black-tailed","Gunnison","Utah","White-tailed"))
+```
+
+# Citations
+
+
